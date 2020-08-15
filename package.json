@@ -1,0 +1,28 @@
+{
+  "name": "reverbnation-scraper",
+  "version": "1.0.0",
+  "description": "Simple package to fetch basic details of the song from reverbnation.",
+  "main": "index.js",
+  "types": "./index.d.ts",
+  "scripts": {
+    "test": "cd test && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Snowflake107/reverbnation-scraper.git"
+  },
+  "keywords": [
+    "reverbnation",
+    "soundcloud",
+    "scraper"
+  ],
+  "author": "Snowflake107",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Snowflake107/reverbnation-scraper/issues"
+  },
+  "homepage": "https://github.com/Snowflake107/reverbnation-scraper#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.0"
+  }
+}
