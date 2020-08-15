@@ -6,7 +6,7 @@ const Artist = require("./src/Artist");
  * Returns song data
  * @param {string} link link to parse
  */
-const fetchData = async (link) => {
+const ReverbnationScraper = async (link) => {
     if (!link) throw new Error("Invalid url!");
 
     try {
@@ -32,4 +32,4 @@ const fetchData = async (link) => {
 
 };
 
-module.exports = fetchData;
+module.exports = ReverbnationScraper;
