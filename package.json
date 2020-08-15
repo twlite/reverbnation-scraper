@@ -1,9 +1,8 @@
 {
   "name": "reverbnation-scraper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple package to fetch basic details of the song from reverbnation.",
   "main": "index.js",
-  "types": "./index.d.ts",
   "scripts": {
     "test": "cd test && node index.js"
   },
