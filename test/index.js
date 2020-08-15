@@ -1,3 +1,11 @@
-const reverbnation = require("../index");
+(async () => {
+    const reverbnation = require("../index");
+    const fs = require("fs");
+    const URL = "https://www.reverbnation.com/marshmello60/song/28858672-marshmello-moving-on-official-music";
 
-reverbnation("https://www.reverbnation.com/alanwalkermusic/song/22564907-fade").then(console.log);
+    const stream = await reverbnation(URL);
+    const data = await reverbnation.getInfo(URL);
+    const writer = stream.pipe(fs.createWriteStream(`./${data.title}.mp3`));
+
+    writer.on("finish", () => console.log("Done!"));
+})();

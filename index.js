@@ -1,12 +1,29 @@
 const fetch = require("node-fetch");
 const Song = require("./src/Song");
 const Artist = require("./src/Artist");
+const https = require("https");
+const { Readable } = require("stream");
+
+/**
+ * Returns ReadableStream
+ * @param {string} link Reverbnation song url
+ * @returns {Promise<Readable>}
+ */
+function rvdl(link) {
+    return new Promise(async (resolve, reject) => {
+        const data = await ReverbnationScraper(link);
+        if (!data) return reject(new Error("Invalid url."));
+        https.get(data.streamURL, res => {
+            return resolve(res);
+        });
+    });
+}
 
 /**
  * Returns song data
  * @param {string} link link to parse
  */
-const ReverbnationScraper = async (link) => {
+async function ReverbnationScraper(link) {
     if (!link) throw new Error("Invalid url!");
 
     try {
@@ -32,4 +49,5 @@ const ReverbnationScraper = async (link) => {
 
 };
 
-module.exports = ReverbnationScraper;
+module.exports = rvdl;
+rvdl.getInfo = ReverbnationScraper;

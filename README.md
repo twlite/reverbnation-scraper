@@ -1,12 +1,26 @@
 # ReverbnationScraper
 Fetches song data from **[https://reverbnation.com](https://reverbnation.com)**.
 
-# Example
+# Examples
+
+## Download audio
+
+```js
+const reverbnation = require("reverbnation-scraper");
+const fs = require("fs");
+
+(async () => {
+    const stream = await reverbnation("https://www.reverbnation.com/alanwalkermusic/song/22564907-fade");
+    stream.pipe(fs.createWriteStream("./Fade.mp3"));
+})();
+```
+
+## Get basic info
 
 ```js
 const reverbnation = require("reverbnation-scraper");
 
-reverbnation("https://www.reverbnation.com/alanwalkermusic/song/22564907-fade")
+reverbnation.getInfo("https://www.reverbnation.com/alanwalkermusic/song/22564907-fade")
 .then(console.log);
 
 /*
